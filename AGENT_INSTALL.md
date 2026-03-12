@@ -35,6 +35,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File $tmp
 
 ```powershell
 hwpbridge doctor
+hwpbridge version
 hwpbridge auth init-config
 hwpbridge auth register-protocol
 hwpbridge auth login --timeout 30
@@ -59,6 +60,7 @@ the agent should stop and tell the user:
 - installation is complete
 - login is required before the CLI can be used
 - a browser window will open for Google login
+- the installed tool should be treated as a release binary, not as editable source
 
 Recommended message:
 
@@ -158,3 +160,16 @@ Operational rule:
 - PowerShell available
 - shell-capable local agent
 
+
+## Agent Safety Rule
+
+For normal end-user support:
+
+- treat the installed CLI as a binary product
+- do not edit source files or scripts
+- do not patch the installed package just to work around an error
+- first run:
+  - `hwpbridge doctor`
+  - `hwpbridge version`
+- if the installation looks wrong, prefer reinstalling the latest public release
+- only modify code when the user explicitly asks for development work in a source checkout

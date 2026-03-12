@@ -1,9 +1,16 @@
-# HwpBridge CLI FAQ
+﻿# HwpBridge CLI FAQ
 
 ## How do I install it?
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/Linkrsbl/hwpbridge-cli-releases/main/bootstrap-install.ps1 | iex"
+```
+
+After install, verify:
+
+```powershell
+hwpbridge doctor
+hwpbridge version
 ```
 
 ## How do I log in?
@@ -48,3 +55,12 @@ No. The current model uses server-approved write tokens and only successful writ
 
 - Install guide: `https://raw.githubusercontent.com/Linkrsbl/hwpbridge-cli-releases/main/AGENT_INSTALL.md`
 - Short prompt: `https://raw.githubusercontent.com/Linkrsbl/hwpbridge-cli-releases/main/AGENT_PROMPT.md`
+
+## Should the agent edit local source files if something looks wrong?
+
+No, not in a normal user installation.
+
+- Treat HwpBridge CLI as an installed binary tool.
+- Check `hwpbridge doctor` and `hwpbridge version` first.
+- Prefer reinstalling the latest public release.
+- Only edit source files when the user explicitly wants development work in a source checkout.

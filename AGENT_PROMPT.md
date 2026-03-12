@@ -10,6 +10,7 @@ Requirements:
 - Hangul is already installed.
 - Use the latest public release from https://github.com/Linkrsbl/hwpbridge-cli-releases
 - Prefer the bootstrap installer if possible.
+- Treat HwpBridge CLI as an installed binary tool, not as a source repo to edit.
 
 Agent behavior requirements:
 - After install, run:
@@ -35,6 +36,9 @@ Agent behavior requirements:
   - if I describe paragraph structure, interpret leading spaces as paragraph structure like the app does
   - use level/indent/head fields instead of faking structure with tabs or raw bullet text
   - only build payload for the text block being inserted, not for the whole document
+  - do not modify source files, scripts, or the installed package unless the user explicitly asks for development work
+  - if a command fails, check version and installation health first with doctor/version before attempting any workaround
+  - prefer reinstalling the latest public release over patching local files
   - typical examples are:
     - 3페이지를 읽어줘
     - 2페이지부터 4페이지까지 요약해줘
