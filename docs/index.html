@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HwpBridge CLI Login</title>
+  <style>
+    :root {
+      --bg: #f7f7f8;
+      --surface: #ffffff;
+      --text: #111827;
+      --muted: #4b5563;
+      --border: #e5e7eb;
+      --primary: #2563eb;
+    }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Segoe UI, Noto Sans KR, Arial, sans-serif;
+    }
+    .card {
+      width: min(560px, calc(100vw - 32px));
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 28px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: 24px;
+    }
+    p {
+      margin: 0 0 12px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+    code {
+      word-break: break-all;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+    .hidden { display: none; }
+    .status { margin-top: 16px; }
+    .ok { color: #047857; }
+    .err { color: #b91c1c; }
+    .button {
+      display: inline-block;
+      margin-top: 4px;
+      color: white;
+      background: var(--primary);
+      text-decoration: none;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>HwpBridge CLI Login</h1>
+    <p id="summary">Completing login...</p>
+    <p id="detail">Passing your session back to the local CLI handler.</p>
+    <p id="manual" class="hidden">
+      If automatic handoff does not complete, copy this full page URL and run
+      <code>hwpbridge auth import-url --url "&lt;url&gt;"</code>.
+    </p>
+    <p id="target" class="status"></p>
+    <p id="external-help" class="hidden">
+      If your browser blocks external app launch, click the button below.
+    </p>
+    <p>
+      <a id="handoff-link" class="button hidden" href="#">Open HwpBridge CLI</a>
+    </p>
+  </div>
+
+  <script>
+    const hash = window.location.hash.startsWith('#') ? window.location.hash.slice(1) : '';
+    const summary = document.getElementById('summary');
+    const detail = document.getElementById('detail');
+    const manual = document.getElementById('manual');
+    const target = document.getElementById('target');
+    const externalHelp = document.getElementById('external-help');
+    const handoffLink = document.getElementById('handoff-link');
+    const handoffBase = 'hwpbridge-cli://callback';
+
+    if (!hash || !hash.includes('access_token=')) {
+      summary.textContent = 'Login could not be completed automatically.';
+      detail.textContent = 'The callback page did not receive access tokens.';
+      target.textContent = 'Use auth import-url with this full page URL if needed.';
+      target.className = 'status err';
+      manual.classList.remove('hidden');
+    } else {
+      const params = new URLSearchParams(hash);
+      const allowedKeys = ['access_token', 'refresh_token', 'expires_at', 'expires_in', 'token_type'];
+      const handoff = new URL(handoffBase);
+      allowedKeys.forEach((key) => {
+        const value = params.get(key);
+        if (value) {
+          handoff.searchParams.set(key, value);
+        }
+      });
+
+      handoffLink.href = handoff.toString();
+      handoffLink.classList.remove('hidden');
+      externalHelp.classList.remove('hidden');
+      target.textContent = `Opening ${handoffBase}`;
+      target.className = 'status ok';
+      setTimeout(() => window.location.replace(handoff.toString()), 50);
+    }
+  </script>
+</body>
+</html>

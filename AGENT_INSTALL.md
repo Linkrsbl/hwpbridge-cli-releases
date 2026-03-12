@@ -9,6 +9,13 @@ for the user.
 - latest release page: `https://github.com/Linkrsbl/hwpbridge-cli-releases/releases/latest`
 - latest release API: `https://api.github.com/repos/Linkrsbl/hwpbridge-cli-releases/releases/latest`
 - bootstrap script: `https://raw.githubusercontent.com/Linkrsbl/hwpbridge-cli-releases/main/bootstrap-install.ps1`
+- hosted auth callback page: `https://linkrsbl.github.io/hwpbridge-cli-releases/`
+
+## Auth Redirect Setup
+
+Supabase Redirect URLs should allowlist:
+
+- `https://linkrsbl.github.io/hwpbridge-cli-releases/`
 
 ## Preferred Install Command
 

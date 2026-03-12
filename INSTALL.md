@@ -1,12 +1,12 @@
 # HwpBridge CLI Quick Install
 
-Windows와 한글이 이미 설치되어 있다면, PowerShell에서 아래 한 줄만 실행하면 됩니다.
+If this Windows machine already has Hangul installed, run this one-liner in PowerShell:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/Linkrsbl/hwpbridge-cli-releases/main/bootstrap-install.ps1 | iex"
 ```
 
-설치 후:
+After install:
 
 ```powershell
 hwpbridge doctor
@@ -17,6 +17,10 @@ hwpbridge auth whoami
 hwpbridge credits balance
 ```
 
-릴리즈:
+Public auth callback page:
+
+- `https://linkrsbl.github.io/hwpbridge-cli-releases/`
+
+Latest release:
 
 - `https://github.com/Linkrsbl/hwpbridge-cli-releases/releases/latest`
