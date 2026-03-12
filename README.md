@@ -1,4 +1,4 @@
-# hwpbridge-cli-releases
+﻿# hwpbridge-cli-releases
 
 Release artifacts for `HwpBridge CLI`.
 
@@ -11,6 +11,7 @@ Latest release:
 - agent install guide: `https://raw.githubusercontent.com/Linkrsbl/hwpbridge-cli-releases/main/AGENT_INSTALL.md`
 - quick install note: `https://raw.githubusercontent.com/Linkrsbl/hwpbridge-cli-releases/main/INSTALL.md`
 - short agent prompt: `https://raw.githubusercontent.com/Linkrsbl/hwpbridge-cli-releases/main/AGENT_PROMPT.md`
+- FAQ / troubleshooting: `https://raw.githubusercontent.com/Linkrsbl/hwpbridge-cli-releases/main/FAQ.md`
 
 Preferred one-step install:
 

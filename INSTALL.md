@@ -24,3 +24,7 @@ Public auth callback page:
 Latest release:
 
 - `https://github.com/Linkrsbl/hwpbridge-cli-releases/releases/latest`
+
+FAQ / troubleshooting:
+
+- `https://raw.githubusercontent.com/Linkrsbl/hwpbridge-cli-releases/main/FAQ.md`
