@@ -71,6 +71,9 @@
       <code>hwpbridge auth import-url --url "&lt;url&gt;"</code>.
     </p>
     <p id="target" class="status"></p>
+    <p id="close-help" class="hidden">
+      If your terminal already shows a successful login, you can close this page.
+    </p>
     <p id="external-help" class="hidden">
       If your browser blocks external app launch, click the button below.
     </p>
@@ -85,6 +88,7 @@
     const detail = document.getElementById('detail');
     const manual = document.getElementById('manual');
     const target = document.getElementById('target');
+    const closeHelp = document.getElementById('close-help');
     const externalHelp = document.getElementById('external-help');
     const handoffLink = document.getElementById('handoff-link');
     const handoffBase = 'hwpbridge-cli://callback';
@@ -109,8 +113,11 @@
       handoffLink.href = handoff.toString();
       handoffLink.classList.remove('hidden');
       externalHelp.classList.remove('hidden');
+      closeHelp.classList.remove('hidden');
       target.textContent = `Opening ${handoffBase}`;
       target.className = 'status ok';
+      summary.textContent = 'Login is being handed off to HwpBridge CLI.';
+      detail.textContent = 'Your browser may briefly open a PowerShell window. Once your terminal shows success, you can close this page.';
       setTimeout(() => window.location.replace(handoff.toString()), 50);
     }
   </script>
