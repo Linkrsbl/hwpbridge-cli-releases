@@ -1,18 +1,35 @@
 # HwpBridge CLI Short Agent Prompt
 
 ```text
-이 Windows PC에 HwpBridge CLI를 설치해줘.
+Install HwpBridge CLI on this Windows machine.
 
-설치 문서:
+Use this install guide:
 https://raw.githubusercontent.com/Linkrsbl/hwpbridge-cli-releases/main/AGENT_INSTALL.md
 
-설치가 끝나면 아래까지 실행해줘:
-- hwpbridge doctor
-- hwpbridge auth init-config
-- hwpbridge auth register-protocol
-- hwpbridge auth login --timeout 30
-- hwpbridge auth whoami
-- hwpbridge credits balance
+Requirements:
+- Hangul is already installed.
+- Use the latest public release from https://github.com/Linkrsbl/hwpbridge-cli-releases
+- Prefer the bootstrap installer if possible.
 
-중간에 사용자 확인이나 브라우저 로그인이 필요하면 그때만 멈추고 알려줘.
+Agent behavior requirements:
+- After install, run:
+  - hwpbridge doctor
+  - hwpbridge auth init-config
+  - hwpbridge auth register-protocol
+- Then stop and tell me:
+  - installation is complete
+  - I need to log in next
+  - the browser will open for Google login
+- Wait for me to finish login.
+- Then run:
+  - hwpbridge auth login --timeout 30
+  - hwpbridge auth whoami
+  - hwpbridge credits balance
+- If login succeeds, tell me:
+  - login is complete
+  - I can now open a Hangul document and ask you to edit text or tables
+  - text work uses a caret or selected text
+  - table work uses a drag-selected table range
+
+If any step requires user interaction, tell me exactly when to act and wait.
 ```

@@ -42,6 +42,53 @@ hwpbridge auth whoami
 hwpbridge credits balance
 ```
 
+## Required Agent Guidance
+
+After install, the agent should guide the user in two stages.
+
+### 1. Install complete -> ask the user to log in
+
+After these commands succeed:
+
+- `hwpbridge doctor`
+- `hwpbridge auth init-config`
+- `hwpbridge auth register-protocol`
+
+the agent should stop and tell the user:
+
+- installation is complete
+- login is required before the CLI can be used
+- a browser window will open for Google login
+
+Recommended message:
+
+- `설치가 완료됐습니다. 이제 로그인만 하면 사용할 수 있습니다. 브라우저에서 Google 로그인을 진행해 주세요.`
+
+### 2. Login complete -> explain how to use the tool
+
+After these commands succeed:
+
+- `hwpbridge auth login --timeout 30`
+- `hwpbridge auth whoami`
+- `hwpbridge credits balance`
+
+the agent should tell the user:
+
+- login is complete
+- they can now open a Hangul document and ask for text or table edits
+- text work uses a caret position or selected text
+- table work uses a drag-selected table range
+
+Recommended message:
+
+- `로그인이 완료됐습니다. 이제 한글 문서를 열어 두고, 원하는 문장 위치를 클릭하거나 표 범위를 드래그 선택한 뒤 저에게 수정/입력을 요청하시면 됩니다.`
+
+Recommended first-usage hints:
+
+- `텍스트 작업은 문서에서 커서를 두거나 문장을 선택한 뒤 요청하면 됩니다.`
+- `표 작업은 필요한 표 범위만 드래그 선택한 뒤 가져오고 입력하면 됩니다.`
+- `쓰기 작업은 로그인된 계정의 크레딧을 사용합니다.`
+
 ## Requirements
 
 - Windows
