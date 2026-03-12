@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>HwpBridge CLI Login</title>
+  <title>HwpBridge CLI 로그인</title>
   <style>
     :root {
       --bg: #f7f7f8;
@@ -63,22 +63,23 @@
 </head>
 <body>
   <div class="card">
-    <h1>HwpBridge CLI Login</h1>
-    <p id="summary">Completing login...</p>
-    <p id="detail">Passing your session back to the local CLI handler.</p>
+    <h1>HwpBridge CLI 로그인</h1>
+    <p id="summary">로그인을 마무리하고 있습니다...</p>
+    <p id="detail">로컬 HwpBridge CLI로 로그인 정보를 전달하는 중입니다.</p>
     <p id="manual" class="hidden">
-      If automatic handoff does not complete, copy this full page URL and run
-      <code>hwpbridge auth import-url --url "&lt;url&gt;"</code>.
+      자동 연결이 완료되지 않으면, 이 페이지의 전체 주소를 복사해서
+      <code>hwpbridge auth import-url --url "&lt;url&gt;"</code>
+      를 실행해 주세요.
     </p>
     <p id="target" class="status"></p>
     <p id="close-help" class="hidden">
-      If your terminal already shows a successful login, you can close this page.
+      터미널에 로그인 성공이 표시되면 이 페이지는 닫아도 됩니다.
     </p>
     <p id="external-help" class="hidden">
-      If your browser blocks external app launch, click the button below.
+      브라우저가 자동으로 프로그램을 열지 못하면 아래 버튼을 눌러 주세요.
     </p>
     <p>
-      <a id="handoff-link" class="button hidden" href="#">Open HwpBridge CLI</a>
+      <a id="handoff-link" class="button hidden" href="#">HwpBridge CLI 열기</a>
     </p>
   </div>
 
@@ -94,9 +95,9 @@
     const handoffBase = 'hwpbridge-cli://callback';
 
     if (!hash || !hash.includes('access_token=')) {
-      summary.textContent = 'Login could not be completed automatically.';
-      detail.textContent = 'The callback page did not receive access tokens.';
-      target.textContent = 'Use auth import-url with this full page URL if needed.';
+      summary.textContent = '로그인을 자동으로 완료하지 못했습니다.';
+      detail.textContent = '리다이렉트 페이지에서 로그인 토큰을 받지 못했습니다.';
+      target.textContent = '필요하면 이 페이지의 전체 주소를 복사해 auth import-url로 직접 가져올 수 있습니다.';
       target.className = 'status err';
       manual.classList.remove('hidden');
     } else {
@@ -114,10 +115,10 @@
       handoffLink.classList.remove('hidden');
       externalHelp.classList.remove('hidden');
       closeHelp.classList.remove('hidden');
-      target.textContent = `Opening ${handoffBase}`;
+      target.textContent = `로컬 HwpBridge CLI를 여는 중입니다: ${handoffBase}`;
       target.className = 'status ok';
-      summary.textContent = 'Login is being handed off to HwpBridge CLI.';
-      detail.textContent = 'Your browser may briefly open a PowerShell window. Once your terminal shows success, you can close this page.';
+      summary.textContent = '로그인 정보를 HwpBridge CLI로 전달하고 있습니다.';
+      detail.textContent = '브라우저가 잠깐 PowerShell 창을 열 수 있습니다. 터미널에 성공 메시지가 보이면 이 페이지를 닫아도 됩니다.';
       setTimeout(() => window.location.replace(handoff.toString()), 50);
     }
   </script>
