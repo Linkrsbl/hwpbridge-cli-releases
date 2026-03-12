@@ -28,6 +28,16 @@ hwpbridge get-page-text --page 3
 hwpbridge-session get-page-text --from-page 2 --to-page 4
 ```
 
+## Can the agent read the text I drag-select?
+
+Yes.
+
+- drag-select the exact text in Hangul
+- then ask the agent things like:
+  - `지금 드래그한 부분 읽어줘`
+  - `선택한 문장을 요약해줘`
+  - `선택한 문장을 바꿔줘`
+
 ## How do I check remaining credits?
 
 ```powershell

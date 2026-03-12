@@ -40,6 +40,8 @@ Agent behavior requirements:
   - if a command fails, check version and installation health first with doctor/version before attempting any workaround
   - prefer reinstalling the latest public release over patching local files
   - typical examples are:
+    - 지금 드래그한 부분을 읽어줘
+    - 선택한 문장을 요약해줘
     - 3페이지를 읽어줘
     - 2페이지부터 4페이지까지 요약해줘
     - 선택한 문장을 바꿔줘
