@@ -46,6 +46,8 @@ Agent behavior requirements:
     - 2페이지부터 4페이지까지 요약해줘
     - 선택한 문장을 바꿔줘
     - 표 범위를 드래그했으니 읽어줘
+    - 선택한 표를 구조화해줘
+    - 이 표 범위에 값을 넣어줘
 
 If any step requires user interaction, tell me exactly when to act and wait.
 ```
