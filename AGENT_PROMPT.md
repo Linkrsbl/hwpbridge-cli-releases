@@ -30,6 +30,7 @@ Agent behavior requirements:
   - I can now open a Hangul document and ask you to edit text or tables
   - text work uses a caret or selected text
   - table work uses a drag-selected table range
+  - if I describe formatting in natural language, convert it into payload fields and apply it for me
 
 If any step requires user interaction, tell me exactly when to act and wait.
 ```

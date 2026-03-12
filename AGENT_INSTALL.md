@@ -89,6 +89,43 @@ Recommended first-usage hints:
 - `표 작업은 필요한 표 범위만 드래그 선택한 뒤 가져오고 입력하면 됩니다.`
 - `쓰기 작업은 로그인된 계정의 크레딧을 사용합니다.`
 
+## Text Formatting Rules For Agents
+
+When the user gives natural-language formatting instructions, the agent should
+convert them into paragraph payload fields for `insert --file`.
+
+Important paragraph fields:
+
+- `text`: actual paragraph text
+- `isBlankLine`: whether the paragraph is an empty line
+- `level`: paragraph level
+- `indentSpaces`: indent size
+- `headType`: heading/bullet type
+- `normalizedHead`: normalized bullet/number text
+- `hwpStyleName`: named Hangul style if the document already uses one
+- `fontName`: font family
+- `fontSize`: font size
+- `isBold`: bold on/off
+- `letterSpacingRatio`: letter spacing / width ratio
+- `lineSpacing`: line spacing
+
+Examples of natural-language mapping:
+
+- `제목은 맑은 고딕 12포인트 굵게`
+  - `fontName: "맑은 고딕"`
+  - `fontSize: 12`
+  - `isBold: true`
+- `본문은 10포인트, 줄간격 160`
+  - `fontSize: 10`
+  - `lineSpacing: 160`
+- `번호 문단으로 넣어줘`
+  - `headType: "numbered"`
+  - `level` and `normalizedHead` as needed
+
+If the user gives natural-language formatting instructions, the agent should
+not ask for raw JSON first. It should build the payload and then run the insert
+command.
+
 ## Requirements
 
 - Windows
