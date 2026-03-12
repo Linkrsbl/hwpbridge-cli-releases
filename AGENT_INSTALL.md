@@ -126,6 +126,33 @@ If the user gives natural-language formatting instructions, the agent should
 not ask for raw JSON first. It should build the payload and then run the insert
 command.
 
+## Paragraph Structure Rules For Agents
+
+Use the same paragraph interpretation model as the app.
+
+Important rules:
+
+- Leading spaces define paragraph structure.
+- Convert visible leading spaces into `indentSpaces`.
+- Resolve `level` from the saved/template level rules for that indent width.
+- Do not use raw tabs inside `text` as the primary way to express paragraph level.
+- Do not fake bullets or numbering by manually stuffing marker characters into `text` unless the literal text is truly required.
+- Use:
+  - `headType`
+  - `normalizedHead`
+  - `level`
+  - `indentSpaces`
+  to express paragraph hierarchy.
+- Keep only the paragraph body in `text`.
+- Blank lines should become paragraphs with `isBlankLine: true`.
+
+Operational rule:
+
+- For CLI insertion, build a payload for the block being inserted now.
+- Do not rebuild the whole document unless the task explicitly requires it.
+- `insert` uses structured paragraph payloads.
+- `replace-selection` and `replace` can stay plain-text operations.
+
 ## Requirements
 
 - Windows

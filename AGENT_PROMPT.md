@@ -31,6 +31,9 @@ Agent behavior requirements:
   - text work uses a caret or selected text
   - table work uses a drag-selected table range
   - if I describe formatting in natural language, convert it into payload fields and apply it for me
+  - if I describe paragraph structure, interpret leading spaces as paragraph structure like the app does
+  - use level/indent/head fields instead of faking structure with tabs or raw bullet text
+  - only build payload for the text block being inserted, not for the whole document
 
 If any step requires user interaction, tell me exactly when to act and wait.
 ```
