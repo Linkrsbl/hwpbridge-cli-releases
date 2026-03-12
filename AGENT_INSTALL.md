@@ -1,4 +1,4 @@
-# HwpBridge CLI Agent Install
+﻿# HwpBridge CLI Agent Install
 
 Use this document when a shell-capable local agent should install `HwpBridge CLI`
 for the user.
@@ -75,19 +75,18 @@ After these commands succeed:
 the agent should tell the user:
 
 - login is complete
-- they can now open a Hangul document and ask for text or table edits
+- they can now open a Hangul document and ask for text, page, or table work
 - text work uses a caret position or selected text
+- page reading uses `get-page-text --page <n>` or `get-page-text --from-page <n> --to-page <m>`
 - table work uses a drag-selected table range
-
 Recommended message:
-
-- `로그인이 완료됐습니다. 이제 한글 문서를 열어 두고, 원하는 문장 위치를 클릭하거나 표 범위를 드래그 선택한 뒤 저에게 수정/입력을 요청하시면 됩니다.`
+- `로그인이 완료됐습니다. 이제 한글 문서를 열어 두고, 원하는 문장 위치를 클릭하거나 특정 페이지를 읽어 달라고 하거나, 표 범위를 드래그 선택한 뒤 저에게 수정 또는 입력을 요청하시면 됩니다.`
 
 Recommended first-usage hints:
-
 - `텍스트 작업은 문서에서 커서를 두거나 문장을 선택한 뒤 요청하면 됩니다.`
-- `표 작업은 필요한 표 범위만 드래그 선택한 뒤 가져오고 입력하면 됩니다.`
-- `쓰기 작업은 로그인된 계정의 크레딧을 사용합니다.`
+- `페이지 읽기는 예를 들어 "3페이지 읽어줘", "2페이지부터 4페이지까지 요약해줘"처럼 요청하면 됩니다.`
+- `표 작업은 필요한 범위만 드래그 선택한 뒤 가져오고 입력하면 됩니다.`
+- `쓰기 작업은 로그인한 계정의 크레딧을 사용합니다.`
 
 ## Text Formatting Rules For Agents
 
@@ -121,7 +120,6 @@ Examples of natural-language mapping:
 - `번호 문단으로 넣어줘`
   - `headType: "numbered"`
   - `level` and `normalizedHead` as needed
-
 If the user gives natural-language formatting instructions, the agent should
 not ask for raw JSON first. It should build the payload and then run the insert
 command.
@@ -159,3 +157,4 @@ Operational rule:
 - Hangul installed
 - PowerShell available
 - shell-capable local agent
+
