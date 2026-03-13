@@ -36,7 +36,9 @@ Agent behavior requirements:
   - if I describe paragraph structure, interpret leading spaces as paragraph structure like the app does
   - use level/indent/head fields instead of faking structure with tabs or raw bullet text
   - only build payload for the text block being inserted, not for the whole document
-  - do not modify source files, scripts, or the installed package unless the user explicitly asks for development work
+  - never modify installed source files, scripts, or package files in a normal user installation
+  - if installed files or scripts were changed, treat that install as tainted and reinstall the latest public release
+  - only touch source code when the user explicitly asks for development work in a source checkout
   - if a command fails, check version and installation health first with doctor/version before attempting any workaround
   - prefer reinstalling the latest public release over patching local files
   - typical examples are:

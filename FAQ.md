@@ -82,5 +82,7 @@ No, not in a normal user installation.
 
 - Treat HwpBridge CLI as an installed binary tool.
 - Check `hwpbridge doctor` and `hwpbridge version` first.
-- Prefer reinstalling the latest public release.
+- Do not modify installed `.ps1`, config, or package files to force a workaround.
+- If installed files were edited, treat that install as tainted.
+- Reinstall the latest public release instead of patching local files.
 - Only edit source files when the user explicitly wants development work in a source checkout.

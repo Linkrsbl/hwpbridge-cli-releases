@@ -61,6 +61,8 @@ the agent should stop and tell the user:
 - login is required before the CLI can be used
 - a browser window will open for Google login
 - the installed tool should be treated as a release binary, not as editable source
+- installed files and scripts must not be edited in normal use
+- if they were edited or changed, reinstall the latest public release instead of patching them
 
 Recommended message:
 
@@ -168,10 +170,11 @@ Operational rule:
 For normal end-user support:
 
 - treat the installed CLI as a binary product
-- do not edit source files or scripts
-- do not patch the installed package just to work around an error
+- never edit installed source files, scripts, or package files
+- never patch the installed package just to work around an error
 - first run:
   - `hwpbridge doctor`
   - `hwpbridge version`
-- if the installation looks wrong, prefer reinstalling the latest public release
+- if the installation looks wrong, reinstall the latest public release
+- if any installed script or file was modified, consider that installation tainted and reinstall
 - only modify code when the user explicitly asks for development work in a source checkout
