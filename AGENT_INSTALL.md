@@ -93,6 +93,7 @@ Recommended first-usage hints:
 - `표 작업은 필요한 범위만 드래그 선택한 뒤 가져오고 입력하면 됩니다.`
 - `예를 들어 "표 범위를 드래그했으니 읽어줘", "선택한 표를 구조화해줘", "이 표 범위에 값을 넣어줘"처럼 요청하면 됩니다.`
 - `쓰기 작업은 로그인한 계정의 크레딧을 사용합니다.`
+- `실패한 쓰기를 짧은 시간 안에 너무 많이 반복하면 서버에서 잠시 쓰기 승인을 제한할 수 있으니, 문제가 나면 반복 시도보다 상태 확인이나 재시도를 천천히 진행해야 합니다.`
 
 ## Text Formatting Rules For Agents
 
@@ -178,3 +179,4 @@ For normal end-user support:
 - if the installation looks wrong, reinstall the latest public release
 - if any installed script or file was modified, consider that installation tainted and reinstall
 - only modify code when the user explicitly asks for development work in a source checkout
+- do not try to bypass write restrictions by repeatedly retrying failed writes; if writes keep failing, explain the problem and slow down or reinstall instead

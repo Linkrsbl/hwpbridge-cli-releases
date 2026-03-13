@@ -35,6 +35,7 @@ Agent behavior requirements:
   - if I describe formatting in natural language, convert it into payload fields and apply it for me
   - if I describe paragraph structure, interpret leading spaces as paragraph structure like the app does
   - use level/indent/head fields instead of faking structure with tabs or raw bullet text
+  - if writes keep failing, do not keep hammering the same command repeatedly; explain that repeated failures can temporarily restrict write approvals
   - only build payload for the text block being inserted, not for the whole document
   - never modify installed source files, scripts, or package files in a normal user installation
   - if installed files or scripts were changed, treat that install as tainted and reinstall the latest public release

@@ -71,6 +71,13 @@ hwpbridge credits redeem --code <VOUCHER_CODE>
 
 No. The current model uses server-approved write tokens and only successful writes are finalized and charged.
 
+## What if writes fail repeatedly?
+
+- A few normal failures are fine.
+- But if clearly abnormal failures keep happening in a short time, the server can temporarily stop issuing new write approvals.
+- If that happens, stop retrying the same failing write over and over.
+- Check `hwpbridge doctor`, confirm the document state, or reinstall the latest public release if the install may be damaged.
+
 ## Can an agent install this for me?
 
 - Install guide: `https://raw.githubusercontent.com/Linkrsbl/hwpbridge-cli-releases/main/AGENT_INSTALL.md`
